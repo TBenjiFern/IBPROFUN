@@ -9,4 +9,6 @@ class MainActivity : AppCompatActivity() {
 //      Links the layout to the kotlin file.
         setContentView(R.layout.intro_screen)
     }
+
+    private
 }
