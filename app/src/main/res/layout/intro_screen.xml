@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Suugaku"
@@ -19,27 +20,36 @@
         app:layout_constraintVertical_bias="0.178" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/startLearningButton"
         android:layout_width="193dp"
         android:layout_height="65dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="385dp" />
+        android:layout_marginTop="84dp"
+        android:text="Start Learning"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="193dp"
         android:layout_height="65dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="450dp" />
+        android:layout_marginTop="36dp"
+        android:text="Game Settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startLearningButton" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="193dp"
         android:layout_height="65dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="515dp" />
+        android:layout_marginTop="28dp"
+        android:text="Account Sign In"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
