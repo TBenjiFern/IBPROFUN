@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1011522025027",
+    "project_id": "suugaku-82667",
+    "storage_bucket": "suugaku-82667.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011522025027:android:e034482f9f1185f535c6f6",
+        "android_client_info": {
+          "package_name": "com.example.ibprofun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011522025027-igtmivjpfftol67k272gtceekg8oujoi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGS7CqOhao4xSoiWJTEGRKfn6lxRzhQWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011522025027-igtmivjpfftol67k272gtceekg8oujoi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
