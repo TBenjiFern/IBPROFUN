@@ -17,21 +17,30 @@ class GameScreen: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_screen)
+        val mode = intent.getStringExtra("mode")
         val button: Button = findViewById(R.id.return_game_select)
         button.setOnClickListener {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
         }
-        val check_button = findViewById<Button>(R.id.check_answer)
-        val rand1 = (0..10).random()
-        val rand2 = (0..10).random()
-        val question = findViewById<TextView>(R.id.auto_question)
-        question.text = "$rand1 + $rand2"
+        if (mode == "add") {
+            addition()
+        }
+        if (mode == "sub") {
+            subtraction()
+        }
+        if (mode == "mult") {
+            multiplication()
+        }
+        if (mode == "div") {
+            division()
+        }
 
-        check_button.setOnClickListener { check_user_answer(rand1, rand2) }
     }
 
-    private fun again() {
+
+
+    private fun addition() {
         setContentView(R.layout.game_screen)
         val button: Button = findViewById(R.id.return_game_select)
         button.setOnClickListener {
@@ -44,21 +53,101 @@ class GameScreen: AppCompatActivity() {
         val question = findViewById<TextView>(R.id.auto_question)
         question.text = "$rand1 + $rand2"
 
-        check_button.setOnClickListener { check_user_answer(rand1, rand2) }
+        check_button.setOnClickListener { check_user_answer(rand1, rand2, "add") }
     }
 
-    private fun check_user_answer(rand1: Int,rand2: Int) {
+    private fun subtraction() {
+        setContentView(R.layout.game_screen)
+        val button: Button = findViewById(R.id.return_game_select)
+        button.setOnClickListener {
+            val i = Intent(this@GameScreen, GameSelection::class.java)
+            startActivity(i)
+        }
+        val check_button = findViewById<Button>(R.id.check_answer)
+        val rand1 = (5..10).random()
+        val rand2 = (1..4).random()
+        val question = findViewById<TextView>(R.id.auto_question)
+        question.text = "$rand1 - $rand2"
+
+        check_button.setOnClickListener { check_user_answer(rand1, rand2, "sub") }
+    }
+
+    private fun multiplication() {
+        setContentView(R.layout.game_screen)
+        val button: Button = findViewById(R.id.return_game_select)
+        button.setOnClickListener {
+            val i = Intent(this@GameScreen, GameSelection::class.java)
+            startActivity(i)
+        }
+        val check_button = findViewById<Button>(R.id.check_answer)
+        val rand1 = (1..10).random()
+        val rand2 = (1..10).random()
+        val question = findViewById<TextView>(R.id.auto_question)
+        question.text = "$rand1 X $rand2"
+
+        check_button.setOnClickListener { check_user_answer(rand1, rand2, "mult") }
+    }
+
+    private fun division() {
+        setContentView(R.layout.game_screen)
+        val button: Button = findViewById(R.id.return_game_select)
+        button.setOnClickListener {
+            val i = Intent(this@GameScreen, GameSelection::class.java)
+            startActivity(i)
+        }
+        val check_button = findViewById<Button>(R.id.check_answer)
+        val rand1 = (1..10).random()
+        val rand2 = (1..10).random()
+        val product = rand1 * rand2
+        val question = findViewById<TextView>(R.id.auto_question)
+        question.text = "$product / $rand2"
+
+        check_button.setOnClickListener { check_user_answer(product, rand2, "div") }
+    }
+
+    private fun getSolution(rand1: Int,rand2: Int,mode: String): Int {
+        if (mode == "add"){
+            return (rand1 + rand2);
+        }
+        else if (mode == "sub"){
+            return (rand1 - rand2);
+        }
+        else if (mode == "mult"){
+            return (rand1 * rand2);
+        }
+        else if (mode == "div"){
+            return (rand1 / rand2);
+        }
+        else {
+            return 404;
+        }
+    }
+
+
+    private fun check_user_answer(rand1: Int,rand2: Int,mode: String) {
         try {
             val user_answer = findViewById<EditText>(R.id.user_answer)
             val background = findViewById<ConstraintLayout>(R.id.background)
             val user_input = user_answer.text.toString().toInt()
-            val answer_output = (rand1 + rand2)
-            if (answer_output == user_input) {
+
+
+            if (getSolution(rand1,rand2,mode) == user_input) {
                 val answer_solution = findViewById<TextView>(R.id.answer_solution)
                 answer_solution.text = "Correct"
                 background.setBackgroundColor(Color.GREEN);
                 Handler(Looper.getMainLooper()).postDelayed({
-                    again()
+                    if (mode == "add") {
+                        addition()
+                    }
+                    if (mode == "sub") {
+                        subtraction()
+                    }
+                    if (mode == "mult") {
+                        multiplication()
+                    }
+                    if (mode == "div") {
+                        division()
+                    }
                 }, 1000)
 
             }
