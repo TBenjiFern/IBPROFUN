@@ -1,0 +1,38 @@
+package com.example.ibprofun
+
+import android.app.Activity
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+
+class GameSelection : Activity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.game_selection)
+        val addButton: Button = findViewById(R.id.add_button)
+        val subButton: Button = findViewById(R.id.minus_button)
+        val multButton: Button = findViewById(R.id.multi_button)
+        val divButton: Button = findViewById(R.id.divi_button)
+        addButton.setOnClickListener {
+            val i = Intent(this@GameSelection, GameScreen::class.java)
+            i.putExtra("mode","add")
+            startActivity(i)
+        }
+        subButton.setOnClickListener {
+            val i = Intent(this@GameSelection, GameScreen::class.java)
+            i.putExtra("mode","sub")
+            startActivity(i)
+        }
+        multButton.setOnClickListener {
+            val i = Intent(this@GameSelection, GameScreen::class.java)
+            i.putExtra("mode","mult")
+            startActivity(i)
+        }
+        divButton.setOnClickListener {
+            val i = Intent(this@GameSelection, GameScreen::class.java)
+            i.putExtra("mode","div")
+            startActivity(i)
+        }
+    }
+}
