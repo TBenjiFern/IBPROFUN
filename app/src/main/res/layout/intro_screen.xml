@@ -4,14 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DD4E4E"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="serif"
         android:text="Suugaku"
         android:textSize="60sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -20,10 +23,15 @@
         app:layout_constraintVertical_bias="0.178" />
 
     <Button
+        android:id="@+id/startLearningButton"
+        android:layout_width="325dp"
+        android:layout_height="75dp"
+=======
         android:id="@+id/start_button"
         android:layout_width="193dp"
         android:layout_height="65dp"
         android:layout_marginTop="84dp"
+        android:background="#2541E1"
         android:text="Start Learning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -31,6 +39,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
+        android:id="@+id/gameSettingsButton"
+        android:layout_width="325dp"
+        android:layout_height="75dp"
+=======
         android:id="@+id/game_setting_button"
         android:layout_width="193dp"
         android:layout_height="65dp"
@@ -42,14 +54,16 @@
         app:layout_constraintTop_toBottomOf="@+id/start_button" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="193dp"
-        android:layout_height="65dp"
+        android:id="@+id/accountButton"
+        android:layout_width="325dp"
+        android:layout_height="75dp"
         android:layout_marginTop="28dp"
         android:text="Account Sign In"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameSettingsButton" />
+=======
         app:layout_constraintTop_toBottomOf="@+id/game_setting_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
