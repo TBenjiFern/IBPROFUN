@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -129,11 +128,16 @@ class GameScreen: AppCompatActivity() {
             val user_answer = findViewById<EditText>(R.id.user_answer)
             val background = findViewById<ConstraintLayout>(R.id.background)
             val user_input = user_answer.text.toString().toInt()
-
+//            val score = findViewById<TextView>(R.id.score)
 
             if (getSolution(rand1,rand2,mode) == user_input) {
                 val answer_solution = findViewById<TextView>(R.id.answer_solution)
+//                val scoreInt: Int = score.getText().toString().toInt() + 5
+//                score.setText(scoreInt.toString())
                 answer_solution.text = "Correct"
+
+
+
                 background.setBackgroundColor(Color.GREEN);
                 Handler(Looper.getMainLooper()).postDelayed({
                     if (mode == "add") {
