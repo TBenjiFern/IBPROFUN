@@ -42,10 +42,10 @@ class GameScreen: AppCompatActivity() {
     private fun addition(scoreInt: Int) {
         setContentView(R.layout.game_screen)
 
-        val score = findViewById<TextView>(R.id.score)
+        val score = findViewById<TextView>(R.id.Counter)
         val newScoreInt: Int = scoreInt + 1
         score.setText(newScoreInt.toString())
-        val button: Button = findViewById(R.id.return_game_select)
+        val button: Button = findViewById(R.id.backButton)
 
         button.setOnClickListener {
             val i = Intent(this@GameScreen, GameSelection::class.java)
@@ -63,10 +63,10 @@ class GameScreen: AppCompatActivity() {
     private fun subtraction(scoreInt: Int) {
         setContentView(R.layout.game_screen)
 
-        val score = findViewById<TextView>(R.id.score)
+        val score = findViewById<TextView>(R.id.Counter)
         val newScoreInt: Int = scoreInt + 1
         score.setText(newScoreInt.toString())
-        val button: Button = findViewById(R.id.return_game_select)
+        val button: Button = findViewById(R.id.backButton)
         
         button.setOnClickListener {
             val i = Intent(this@GameScreen, GameSelection::class.java)
@@ -84,10 +84,10 @@ class GameScreen: AppCompatActivity() {
     private fun multiplication(scoreInt: Int) {
         setContentView(R.layout.game_screen)
 
-        val score = findViewById<TextView>(R.id.score)
+        val score = findViewById<TextView>(R.id.Counter)
         val newScoreInt: Int = scoreInt + 1
         score.setText(newScoreInt.toString())
-        val button: Button = findViewById(R.id.return_game_select)
+        val button: Button = findViewById(R.id.backButton)
 
         button.setOnClickListener {
             val i = Intent(this@GameScreen, GameSelection::class.java)
@@ -105,10 +105,10 @@ class GameScreen: AppCompatActivity() {
     private fun division(scoreInt: Int) {
         setContentView(R.layout.game_screen)
 
-        val score = findViewById<TextView>(R.id.score)
+        val score = findViewById<TextView>(R.id.Counter)
         val newScoreInt: Int = scoreInt + 1
         score.setText(newScoreInt.toString())
-        val button: Button = findViewById(R.id.return_game_select)
+        val button: Button = findViewById(R.id.backButton)
 
         button.setOnClickListener {
             val i = Intent(this@GameScreen, GameSelection::class.java)
