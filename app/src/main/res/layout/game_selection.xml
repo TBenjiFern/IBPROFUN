@@ -19,24 +19,18 @@
 
     <Button
         android:id="@+id/additionButton"
-=======
-        android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
         android:text="+"
         android:textSize="55sp"
         app:layout_constraintEnd_toStartOf="@+id/subtractionButton"
-=======
-        app:layout_constraintEnd_toStartOf="@+id/minus_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/subtractionButton"
-=======
-        android:id="@+id/minus_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
@@ -49,12 +43,6 @@
 
     <Button
         android:id="@+id/multiplicationButton"
-=======
-        app:layout_constraintStart_toEndOf="@+id/add_button"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/multi_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -67,14 +55,6 @@
 
     <Button
         android:id="@+id/divisionButton"
-=======
-        app:layout_constraintEnd_toStartOf="@+id/divi_button"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_button" />
-
-    <Button
-        android:id="@+id/divi_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -84,7 +64,5 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/multiplicationButton"
         app:layout_constraintTop_toBottomOf="@+id/subtractionButton" />
-=======
-        app:layout_constraintStart_toEndOf="@+id/multi_button"
-        app:layout_constraintTop_toBottomOf="@+id/minus_button" />
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
