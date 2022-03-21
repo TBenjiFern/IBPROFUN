@@ -18,43 +18,43 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/add_button"
+        android:id="@+id/additionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
         android:text="+"
         android:textSize="55sp"
-        app:layout_constraintEnd_toStartOf="@+id/minus_button"
+        app:layout_constraintEnd_toStartOf="@+id/subtractionButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/minus_button"
+        android:id="@+id/subtractionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
-        android:text="-"
+        android:text="—"
         android:textSize="55sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/add_button"
+        app:layout_constraintStart_toEndOf="@+id/additionButton"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/multi_button"
+        android:id="@+id/multiplicationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="x"
         android:textSize="55sp"
-        app:layout_constraintEnd_toStartOf="@+id/divi_button"
+        app:layout_constraintEnd_toStartOf="@+id/divisionButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_button" />
+        app:layout_constraintTop_toBottomOf="@+id/additionButton" />
 
     <Button
-        android:id="@+id/divi_button"
+        android:id="@+id/divisionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -62,6 +62,7 @@
         android:textSize="55sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/multi_button"
-        app:layout_constraintTop_toBottomOf="@+id/minus_button" />
+        app:layout_constraintStart_toEndOf="@+id/multiplicationButton"
+        app:layout_constraintTop_toBottomOf="@+id/subtractionButton" />
+    
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,10 +10,10 @@ class GameSelection : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_selection)
-        val addButton: Button = findViewById(R.id.add_button)
-        val subButton: Button = findViewById(R.id.minus_button)
-        val multButton: Button = findViewById(R.id.multi_button)
-        val divButton: Button = findViewById(R.id.divi_button)
+        val addButton: Button = findViewById(R.id.additionButton)
+        val subButton: Button = findViewById(R.id.subtractionButton)
+        val multButton: Button = findViewById(R.id.multiplicationButton)
+        val divButton: Button = findViewById(R.id.divisionButton)
         addButton.setOnClickListener {
             val i = Intent(this@GameSelection, GameScreen::class.java)
             i.putExtra("mode","add")

@@ -17,7 +17,7 @@ class GameScreen: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_screen)
         val mode = intent.getStringExtra("mode")
-        val button: Button = findViewById(R.id.return_game_select)
+        val button: Button = findViewById(R.id.backButton)
         button.setOnClickListener {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
@@ -41,18 +41,20 @@ class GameScreen: AppCompatActivity() {
 
     private fun addition(scoreInt: Int) {
         setContentView(R.layout.game_screen)
+
         val score = findViewById<TextView>(R.id.score)
         val newScoreInt: Int = scoreInt + 1
         score.setText(newScoreInt.toString())
         val button: Button = findViewById(R.id.return_game_select)
+
         button.setOnClickListener {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
         }
-        val check_button = findViewById<Button>(R.id.check_answer)
+        val check_button = findViewById<Button>(R.id.Answer_button)
         val rand1 = (1..10).random()
         val rand2 = (1..10).random()
-        val question = findViewById<TextView>(R.id.auto_question)
+        val question = findViewById<TextView>(R.id.Equation)
         question.text = "$rand1 + $rand2"
 
         check_button.setOnClickListener { check_user_answer(rand1, rand2, "add", newScoreInt) }
@@ -60,18 +62,20 @@ class GameScreen: AppCompatActivity() {
 
     private fun subtraction(scoreInt: Int) {
         setContentView(R.layout.game_screen)
+
         val score = findViewById<TextView>(R.id.score)
         val newScoreInt: Int = scoreInt + 1
         score.setText(newScoreInt.toString())
         val button: Button = findViewById(R.id.return_game_select)
+        
         button.setOnClickListener {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
         }
-        val check_button = findViewById<Button>(R.id.check_answer)
+        val check_button = findViewById<Button>(R.id.Answer_button)
         val rand1 = (5..10).random()
         val rand2 = (1..4).random()
-        val question = findViewById<TextView>(R.id.auto_question)
+        val question = findViewById<TextView>(R.id.Equation)
         question.text = "$rand1 - $rand2"
 
         check_button.setOnClickListener { check_user_answer(rand1, rand2, "sub",newScoreInt) }
@@ -79,18 +83,20 @@ class GameScreen: AppCompatActivity() {
 
     private fun multiplication(scoreInt: Int) {
         setContentView(R.layout.game_screen)
+
         val score = findViewById<TextView>(R.id.score)
         val newScoreInt: Int = scoreInt + 1
         score.setText(newScoreInt.toString())
         val button: Button = findViewById(R.id.return_game_select)
+
         button.setOnClickListener {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
         }
-        val check_button = findViewById<Button>(R.id.check_answer)
+        val check_button = findViewById<Button>(R.id.Answer_button)
         val rand1 = (1..10).random()
         val rand2 = (1..10).random()
-        val question = findViewById<TextView>(R.id.auto_question)
+        val question = findViewById<TextView>(R.id.Equation)
         question.text = "$rand1 X $rand2"
 
         check_button.setOnClickListener { check_user_answer(rand1, rand2, "mult",newScoreInt) }
@@ -98,19 +104,21 @@ class GameScreen: AppCompatActivity() {
 
     private fun division(scoreInt: Int) {
         setContentView(R.layout.game_screen)
+
         val score = findViewById<TextView>(R.id.score)
         val newScoreInt: Int = scoreInt + 1
         score.setText(newScoreInt.toString())
         val button: Button = findViewById(R.id.return_game_select)
+
         button.setOnClickListener {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
         }
-        val check_button = findViewById<Button>(R.id.check_answer)
+        val check_button = findViewById<Button>(R.id.Answer_button)
         val rand1 = (1..10).random()
         val rand2 = (1..10).random()
         val product = rand1 * rand2
-        val question = findViewById<TextView>(R.id.auto_question)
+        val question = findViewById<TextView>(R.id.Equation)
         question.text = "$product / $rand2"
 
         check_button.setOnClickListener { check_user_answer(product, rand2, "div",newScoreInt) }
@@ -137,13 +145,13 @@ class GameScreen: AppCompatActivity() {
 
     private fun check_user_answer(rand1: Int,rand2: Int,mode: String, scoreInt: Int) {
         try {
-            val user_answer = findViewById<EditText>(R.id.user_answer)
+            val user_answer = findViewById<EditText>(R.id.Answer_input)
             val background = findViewById<ConstraintLayout>(R.id.background)
             val user_input = user_answer.text.toString().toInt()
 
 
             if (getSolution(rand1,rand2,mode) == user_input) {
-                val answer_solution = findViewById<TextView>(R.id.answer_solution)
+                val answer_solution = findViewById<TextView>(R.id.Check_answer)
                 answer_solution.text = "Correct"
 
 
@@ -166,7 +174,7 @@ class GameScreen: AppCompatActivity() {
 
             }
             else{
-                val answer_solution = findViewById<TextView>(R.id.answer_solution)
+                val answer_solution = findViewById<TextView>(R.id.Check_answer)
                 answer_solution.text ="Wrong"
                 background.setBackgroundColor(Color.RED);
                 answer_solution.postDelayed(Runnable {

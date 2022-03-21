@@ -9,12 +9,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.intro_screen)
-        val start:Button = findViewById(R.id.start_button)
+        val start:Button = findViewById(R.id.startLearningButton)
         start.setOnClickListener {
             val intent = Intent(this@MainActivity, GameSelection::class.java)
             startActivity(intent)
         }
-        val setting:Button = findViewById(R.id.game_setting_button)
+        val setting:Button = findViewById(R.id.gameSettingsButton)
         setting.setOnClickListener {
             val intent = Intent(this@MainActivity, GameSettings::class.java)
             startActivity(intent)
