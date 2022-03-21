@@ -69,7 +69,6 @@
         android:layout_height="82dp"
         android:layout_marginTop="44dp"
         android:background="#00F6F2F2"
-        android:text="Check_answer"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
