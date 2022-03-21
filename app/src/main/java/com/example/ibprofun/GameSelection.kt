@@ -16,22 +16,22 @@ class GameSelection : Activity() {
         val divButton: Button = findViewById(R.id.divisionButton)
         addButton.setOnClickListener {
             val i = Intent(this@GameSelection, GameScreen::class.java)
-            i.putExtra("mode","add")
+            i.putExtra("mode","addition")
             startActivity(i)
         }
         subButton.setOnClickListener {
             val i = Intent(this@GameSelection, GameScreen::class.java)
-            i.putExtra("mode","sub")
+            i.putExtra("mode","subtraction")
             startActivity(i)
         }
         multButton.setOnClickListener {
             val i = Intent(this@GameSelection, GameScreen::class.java)
-            i.putExtra("mode","mult")
+            i.putExtra("mode","multiplication")
             startActivity(i)
         }
         divButton.setOnClickListener {
             val i = Intent(this@GameSelection, GameScreen::class.java)
-            i.putExtra("mode","div")
+            i.putExtra("mode","division")
             startActivity(i)
         }
     }

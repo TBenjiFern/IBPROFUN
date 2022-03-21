@@ -22,16 +22,16 @@ class GameScreen: AppCompatActivity() {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
         }
-        if (mode == "add") {
+        if (mode == "addition") {
             addition(-1)
         }
-        if (mode == "sub") {
+        if (mode == "subtraction") {
             subtraction(-1)
         }
-        if (mode == "mult") {
+        if (mode == "multiplication") {
             multiplication(-1)
         }
-        if (mode == "div") {
+        if (mode == "division") {
             division(-1)
         }
 
@@ -41,6 +41,8 @@ class GameScreen: AppCompatActivity() {
 
     private fun addition(scoreInt: Int) {
         setContentView(R.layout.game_screen)
+        val title = findViewById<TextView>(R.id.OperatorTitle)
+        title.text = "Addition"
 
         val score = findViewById<TextView>(R.id.Counter)
         val newScoreInt: Int = scoreInt + 1
@@ -62,6 +64,8 @@ class GameScreen: AppCompatActivity() {
 
     private fun subtraction(scoreInt: Int) {
         setContentView(R.layout.game_screen)
+        val title = findViewById<TextView>(R.id.OperatorTitle)
+        title.text = "Subtraction"
 
         val score = findViewById<TextView>(R.id.Counter)
         val newScoreInt: Int = scoreInt + 1
@@ -83,6 +87,8 @@ class GameScreen: AppCompatActivity() {
 
     private fun multiplication(scoreInt: Int) {
         setContentView(R.layout.game_screen)
+        val title = findViewById<TextView>(R.id.OperatorTitle)
+        title.text = "Multiplication"
 
         val score = findViewById<TextView>(R.id.Counter)
         val newScoreInt: Int = scoreInt + 1
@@ -104,6 +110,8 @@ class GameScreen: AppCompatActivity() {
 
     private fun division(scoreInt: Int) {
         setContentView(R.layout.game_screen)
+        val title = findViewById<TextView>(R.id.OperatorTitle)
+        title.text = "Division"
 
         val score = findViewById<TextView>(R.id.Counter)
         val newScoreInt: Int = scoreInt + 1
