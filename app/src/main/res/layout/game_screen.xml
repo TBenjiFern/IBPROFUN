@@ -29,13 +29,14 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Check_answer" />
+        app:layout_constraintTop_toBottomOf="@+id/Check_answer"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/Answer_button"
         android:layout_width="179dp"
         android:layout_height="120dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="CHECK"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textStyle="bold|italic"
@@ -56,12 +57,11 @@
         android:id="@+id/Equation"
         android:layout_width="370dp"
         android:layout_height="98dp"
-        android:layout_marginTop="80dp"
-        android:text="Equation"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OperatorTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/progress_view" />
 
     <TextView
         android:id="@+id/Check_answer"
@@ -79,8 +79,17 @@
         android:id="@+id/Counter"
         android:layout_width="84dp"
         android:layout_height="94dp"
-        android:text="Counter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/progress_view"
+        android:layout_width="128dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OperatorTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
