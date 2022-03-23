@@ -52,6 +52,16 @@ class GameScreen: AppCompatActivity() {
         else {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
+            var displayScore = scoreInt;
+            if (getPoint) {
+                displayScore += 1;
+            }
+
+            val text = "Your score was " + displayScore.toString()
+            val duration = Toast.LENGTH_SHORT
+
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
         }
         val score = findViewById<TextView>(R.id.Counter)
         var newScoreInt: Int = scoreInt
@@ -85,6 +95,16 @@ class GameScreen: AppCompatActivity() {
         else {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
+            var displayScore = scoreInt;
+            if (getPoint) {
+                displayScore += 1;
+            }
+
+            val text = "Your score was " + displayScore.toString()
+            val duration = Toast.LENGTH_SHORT
+
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
         }
         val score = findViewById<TextView>(R.id.Counter)
         var newScoreInt: Int = scoreInt
@@ -118,6 +138,16 @@ class GameScreen: AppCompatActivity() {
         else {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
+            var displayScore = scoreInt;
+            if (getPoint) {
+                displayScore += 1;
+            }
+
+            val text = "Your score was " + displayScore.toString()
+            val duration = Toast.LENGTH_SHORT
+
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
         }
         val score = findViewById<TextView>(R.id.Counter)
         var newScoreInt: Int = scoreInt
@@ -151,6 +181,16 @@ class GameScreen: AppCompatActivity() {
         else {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
+            var displayScore = scoreInt;
+            if (getPoint) {
+                displayScore += 1;
+            }
+
+            val text = "Your score was " + displayScore.toString()
+            val duration = Toast.LENGTH_SHORT
+
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
         }
         val score = findViewById<TextView>(R.id.Counter)
         var newScoreInt: Int = scoreInt
