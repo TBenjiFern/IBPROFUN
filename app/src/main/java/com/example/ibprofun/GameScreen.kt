@@ -45,8 +45,13 @@ class GameScreen: AppCompatActivity() {
     private fun addition(scoreInt: Int) {
         setContentView(R.layout.game_screen)
         val title = findViewById<TextView>(R.id.OperatorTitle)
+
+        var progress = findViewById<TextView>(R.id.progress_view)
+
+        progress.text = problemCount.toString() + "/10"
+
         title.text = "Addition"
-        if (problemCount != 10) {
+        if (problemCount != 11) {
             problemCount += 1
         }
         else {
@@ -89,7 +94,12 @@ class GameScreen: AppCompatActivity() {
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Subtraction"
 
-        if (problemCount != 10) {
+        var progress = findViewById<TextView>(R.id.progress_view)
+
+        progress.text = problemCount.toString() + "/10"
+
+        title.text = "Addition"
+        if (problemCount != 11) {
             problemCount += 1
         }
         else {
@@ -132,7 +142,12 @@ class GameScreen: AppCompatActivity() {
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Multiplication"
 
-        if (problemCount != 10) {
+        var progress = findViewById<TextView>(R.id.progress_view)
+
+        progress.text = problemCount.toString() + "/10"
+
+        title.text = "Addition"
+        if (problemCount != 11) {
             problemCount += 1
         }
         else {
@@ -175,7 +190,12 @@ class GameScreen: AppCompatActivity() {
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Division"
 
-        if (problemCount != 10) {
+        var progress = findViewById<TextView>(R.id.progress_view)
+
+        progress.text = problemCount.toString() + "/10"
+
+        title.text = "Addition"
+        if (problemCount != 11) {
             problemCount += 1
         }
         else {
