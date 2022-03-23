@@ -51,11 +51,11 @@
         app:layout_constraintTop_toBottomOf="@+id/startLearningButton" />
 
     <Button
-        android:id="@+id/accountButton"
+        android:id="@+id/HighScoreButton"
         android:layout_width="325dp"
         android:layout_height="75dp"
         android:layout_marginTop="28dp"
-        android:text="Account Sign In"
+        android:text="High Scores"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
