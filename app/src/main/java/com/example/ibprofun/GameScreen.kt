@@ -13,11 +13,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 
 class GameScreen: AppCompatActivity() {
+    var problemCount = 0
+    var getPoint = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_screen)
         val mode = intent.getStringExtra("mode")
         val button: Button = findViewById(R.id.backButton)
+
         button.setOnClickListener {
             val i = Intent(this@GameScreen, GameSelection::class.java)
             startActivity(i)
@@ -43,9 +46,18 @@ class GameScreen: AppCompatActivity() {
         setContentView(R.layout.game_screen)
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Addition"
-
+        if (problemCount != 10) {
+            problemCount += 1
+        }
+        else {
+            val i = Intent(this@GameScreen, GameSelection::class.java)
+            startActivity(i)
+        }
         val score = findViewById<TextView>(R.id.Counter)
-        val newScoreInt: Int = scoreInt + 1
+        var newScoreInt: Int = scoreInt
+        if (getPoint) {
+            newScoreInt += 1
+        }
         score.setText(newScoreInt.toString())
         val button: Button = findViewById(R.id.backButton)
 
@@ -67,8 +79,18 @@ class GameScreen: AppCompatActivity() {
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Subtraction"
 
+        if (problemCount != 10) {
+            problemCount += 1
+        }
+        else {
+            val i = Intent(this@GameScreen, GameSelection::class.java)
+            startActivity(i)
+        }
         val score = findViewById<TextView>(R.id.Counter)
-        val newScoreInt: Int = scoreInt + 1
+        var newScoreInt: Int = scoreInt
+        if (getPoint) {
+            newScoreInt += 1
+        }
         score.setText(newScoreInt.toString())
         val button: Button = findViewById(R.id.backButton)
         
@@ -90,8 +112,18 @@ class GameScreen: AppCompatActivity() {
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Multiplication"
 
+        if (problemCount != 10) {
+            problemCount += 1
+        }
+        else {
+            val i = Intent(this@GameScreen, GameSelection::class.java)
+            startActivity(i)
+        }
         val score = findViewById<TextView>(R.id.Counter)
-        val newScoreInt: Int = scoreInt + 1
+        var newScoreInt: Int = scoreInt
+        if (getPoint) {
+            newScoreInt += 1
+        }
         score.setText(newScoreInt.toString())
         val button: Button = findViewById(R.id.backButton)
 
@@ -113,8 +145,18 @@ class GameScreen: AppCompatActivity() {
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Division"
 
+        if (problemCount != 10) {
+            problemCount += 1
+        }
+        else {
+            val i = Intent(this@GameScreen, GameSelection::class.java)
+            startActivity(i)
+        }
         val score = findViewById<TextView>(R.id.Counter)
-        val newScoreInt: Int = scoreInt + 1
+        var newScoreInt: Int = scoreInt
+        if (getPoint) {
+            newScoreInt += 1
+        }
         score.setText(newScoreInt.toString())
         val button: Button = findViewById(R.id.backButton)
 
@@ -161,7 +203,7 @@ class GameScreen: AppCompatActivity() {
             if (getSolution(rand1,rand2,mode) == user_input) {
                 val answer_solution = findViewById<TextView>(R.id.Check_answer)
                 answer_solution.text = "Correct"
-
+                getPoint = true
 
 
                 background.setBackgroundColor(Color.GREEN);
@@ -184,10 +226,22 @@ class GameScreen: AppCompatActivity() {
             else{
                 val answer_solution = findViewById<TextView>(R.id.Check_answer)
                 answer_solution.text ="Wrong"
+
+                getPoint = false
                 background.setBackgroundColor(Color.RED);
-                answer_solution.postDelayed(Runnable {
-                    answer_solution.text = ""
-                    background.setBackgroundColor(Color.WHITE);
+                Handler(Looper.getMainLooper()).postDelayed({
+                    if (mode == "add") {
+                        addition(scoreInt)
+                    }
+                    if (mode == "sub") {
+                        subtraction(scoreInt)
+                    }
+                    if (mode == "mult") {
+                        multiplication(scoreInt)
+                    }
+                    if (mode == "div") {
+                        division(scoreInt)
+                    }
                 }, 1000)
             }
         } catch (e : Exception) {
