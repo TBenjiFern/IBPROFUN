@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 
 class GameScreen: AppCompatActivity() {
-    var problemCount = 0
+    var problemCount = 1
     var getPoint = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
