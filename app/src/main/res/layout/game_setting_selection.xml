@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.911" />
+        app:layout_constraintVertical_bias="0.869" />
 
     <TextView
         android:id="@+id/multiplierTotalTitle"
@@ -35,13 +35,13 @@
         android:id="@+id/multiplierTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
+        android:layout_marginBottom="16dp"
         android:text="Score Multiplier:"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/multiplier2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficultyTitle" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/multiplier2"
@@ -54,7 +54,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.755" />
+        app:layout_constraintVertical_bias="0.731" />
 
     <Button
         android:id="@+id/return_to_main"
@@ -69,6 +69,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+
     <TextView
         android:id="@+id/difficultyTitle"
         android:layout_width="wrap_content"
@@ -78,25 +79,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.479" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:id="@+id/questions"
-        android:layout_width="188dp"
-        android:layout_height="46dp"
+        android:id="@+id/questionsGroup"
+        android:layout_width="197dp"
+        android:layout_height="48dp"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="120dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/difficultyTitle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionsTitle">
+        app:layout_constraintTop_toBottomOf="@+id/questionsTitle"
+        app:layout_constraintVertical_bias="0.206">
 
         <RadioButton
             android:id="@+id/ques_10"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="10 "
             tools:ignore="TouchTargetSizeCheck" />
 
@@ -117,18 +120,6 @@
     </RadioGroup>
 
     <TextView
-        android:id="@+id/multiplier1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:text="1.0"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/difficultyTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/multiplierTitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -139,44 +130,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questions"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/questionsGroup"
+        app:layout_constraintVertical_bias="0.962" />
 
-    <RadioButton
-        android:id="@+id/diff_medium"
-        android:layout_width="96dp"
+    <TextView
+        android:id="@+id/multiplier1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Medium"
+        android:text="1.0"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/difficultyTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionsGroup"
+        app:layout_constraintVertical_bias="0.644" />
+
+    <RadioGroup
+        android:id="@+id/difficultiesGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="120dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/multiplierTitle2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficultyTitle"
-        app:layout_constraintVertical_bias="0.392" />
+        app:layout_constraintTop_toBottomOf="@+id/difficultyTitle">
 
-    <RadioButton
-        android:id="@+id/diff_hard"
-        android:layout_width="82dp"
-        android:layout_height="50dp"
-        android:text="Hard"
-        app:layout_constraintBottom_toTopOf="@+id/multiplierTitle2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/diff_medium"
-        app:layout_constraintTop_toBottomOf="@+id/difficultyTitle"
-        app:layout_constraintVertical_bias="0.39" />
+        <RadioButton
+            android:id="@+id/diff_easy"
+            android:layout_width="91dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="Easy"
+            tools:ignore="TouchTargetSizeCheck" />
 
-    <RadioButton
-        android:id="@+id/diff_easy"
-        android:layout_width="91dp"
-        android:layout_height="49dp"
-        android:text="Easy"
-        app:layout_constraintBottom_toTopOf="@+id/multiplierTitle2"
-        app:layout_constraintEnd_toStartOf="@+id/diff_medium"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficultyTitle"
-        app:layout_constraintVertical_bias="0.397" />
+        <RadioButton
+            android:id="@+id/diff_medium"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Medium"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/diff_hard"
+            android:layout_width="82dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hard"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/questionsTitle"
@@ -189,7 +195,17 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/return_to_main"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.061" />
+
+    <Button
+        android:id="@+id/saveSettingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/multiplierTotal" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
