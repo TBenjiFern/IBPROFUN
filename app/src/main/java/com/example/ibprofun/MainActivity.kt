@@ -19,5 +19,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, GameSettings::class.java)
             startActivity(intent)
         }
+        val score:Button = findViewById(R.id.HighScoreButton)
+        score.setOnClickListener {
+            val intent = Intent(this@MainActivity, HighScoresScreen::class.java)
+            startActivity(intent)
+        }
     }
 }
