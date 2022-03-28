@@ -14,6 +14,11 @@ class GameSelection : Activity() {
         val subButton: Button = findViewById(R.id.subtractionButton)
         val multButton: Button = findViewById(R.id.multiplicationButton)
         val divButton: Button = findViewById(R.id.divisionButton)
+        val button: Button = findViewById(R.id.return_to_main_select)
+        button.setOnClickListener {
+            val i = Intent(this@GameSelection, MainActivity::class.java)
+            startActivity(i)
+        }
         addButton.setOnClickListener {
             val i = Intent(this@GameSelection, GameScreen::class.java)
             i.putExtra("mode","addition")
