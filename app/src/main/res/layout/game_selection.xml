@@ -82,7 +82,7 @@
         android:textAlignment="center"
         android:textColor="#FF3700B3"
         android:textSize="80sp"
-        android:textStyle="bold|italic"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
