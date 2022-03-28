@@ -1,5 +1,6 @@
 package com.example.ibprofun
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -15,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 class GameScreen: AppCompatActivity() {
     var problemCount = 1
     var getPoint = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_screen)
@@ -43,30 +45,39 @@ class GameScreen: AppCompatActivity() {
 
 
     private fun addition(scoreInt: Int) {
+        val sharedPreference =  getApplicationContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        var qAmount = sharedPreference.getString("qAmount"," ")
+        var multiplier = sharedPreference.getString("multiplier"," ")
         setContentView(R.layout.game_screen)
         val title = findViewById<TextView>(R.id.OperatorTitle)
 
         var progress = findViewById<TextView>(R.id.progress_view)
 
-        progress.text = problemCount.toString() + "/10"
+        progress.text = problemCount.toString() + "/" + qAmount
 
         title.text = "Addition"
-        if (problemCount != 11) {
-            problemCount += 1
-        }
-        else {
-            val i = Intent(this@GameScreen, GameSelection::class.java)
-            startActivity(i)
-            var displayScore = scoreInt;
-            if (getPoint) {
-                displayScore += 1;
+        if (qAmount != null) {
+            if (problemCount != qAmount.toInt() + 1) {
+                problemCount += 1
             }
+            else {
+                val i = Intent(this@GameScreen, GameSelection::class.java)
+                startActivity(i)
+                var displayScore = scoreInt.toFloat();
+                if (getPoint) {
+                    displayScore += 1;
+                }
 
-            val text = "Your score was " + displayScore.toString()
-            val duration = Toast.LENGTH_SHORT
+                if (multiplier != null) {
+                    displayScore *= multiplier.toFloat()
+                }
 
-            val toast = Toast.makeText(applicationContext, text, duration)
-            toast.show()
+                val text = "Your score was " + displayScore.toString()
+                val duration = Toast.LENGTH_SHORT
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
         }
         val score = findViewById<TextView>(R.id.Counter)
         var newScoreInt: Int = scoreInt
@@ -90,31 +101,40 @@ class GameScreen: AppCompatActivity() {
     }
 
     private fun subtraction(scoreInt: Int) {
+        val sharedPreference =  getApplicationContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        var qAmount = sharedPreference.getString("qAmount"," ")
+        var multiplier = sharedPreference.getString("multiplier"," ")
         setContentView(R.layout.game_screen)
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Subtraction"
 
         var progress = findViewById<TextView>(R.id.progress_view)
 
-        progress.text = problemCount.toString() + "/10"
+        progress.text = problemCount.toString() + "/" + qAmount
 
-        title.text = "Addition"
-        if (problemCount != 11) {
-            problemCount += 1
-        }
-        else {
-            val i = Intent(this@GameScreen, GameSelection::class.java)
-            startActivity(i)
-            var displayScore = scoreInt;
-            if (getPoint) {
-                displayScore += 1;
+
+        if (qAmount != null) {
+            if (problemCount != qAmount.toInt() + 1) {
+                problemCount += 1
             }
+            else {
+                val i = Intent(this@GameScreen, GameSelection::class.java)
+                startActivity(i)
+                var displayScore = scoreInt.toFloat();
+                if (getPoint) {
+                    displayScore += 1;
+                }
 
-            val text = "Your score was " + displayScore.toString()
-            val duration = Toast.LENGTH_SHORT
+                if (multiplier != null) {
+                    displayScore *= multiplier.toFloat()
+                }
 
-            val toast = Toast.makeText(applicationContext, text, duration)
-            toast.show()
+                val text = "Your score was " + displayScore.toString()
+                val duration = Toast.LENGTH_SHORT
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
         }
         val score = findViewById<TextView>(R.id.Counter)
         var newScoreInt: Int = scoreInt
@@ -138,31 +158,40 @@ class GameScreen: AppCompatActivity() {
     }
 
     private fun multiplication(scoreInt: Int) {
+        val sharedPreference =  getApplicationContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        var qAmount = sharedPreference.getString("qAmount"," ")
+        var multiplier = sharedPreference.getString("multiplier"," ")
         setContentView(R.layout.game_screen)
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Multiplication"
 
         var progress = findViewById<TextView>(R.id.progress_view)
 
-        progress.text = problemCount.toString() + "/10"
+        progress.text = problemCount.toString() + "/" + qAmount
 
-        title.text = "Addition"
-        if (problemCount != 11) {
-            problemCount += 1
-        }
-        else {
-            val i = Intent(this@GameScreen, GameSelection::class.java)
-            startActivity(i)
-            var displayScore = scoreInt;
-            if (getPoint) {
-                displayScore += 1;
+
+        if (qAmount != null) {
+            if (problemCount != qAmount.toInt() + 1) {
+                problemCount += 1
             }
+            else {
+                val i = Intent(this@GameScreen, GameSelection::class.java)
+                startActivity(i)
+                var displayScore = scoreInt.toFloat();
+                if (getPoint) {
+                    displayScore += 1;
+                }
 
-            val text = "Your score was " + displayScore.toString()
-            val duration = Toast.LENGTH_SHORT
+                if (multiplier != null) {
+                    displayScore *= multiplier.toFloat()
+                }
 
-            val toast = Toast.makeText(applicationContext, text, duration)
-            toast.show()
+                val text = "Your score was " + displayScore.toString()
+                val duration = Toast.LENGTH_SHORT
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
         }
         val score = findViewById<TextView>(R.id.Counter)
         var newScoreInt: Int = scoreInt
@@ -186,31 +215,40 @@ class GameScreen: AppCompatActivity() {
     }
 
     private fun division(scoreInt: Int) {
+        val sharedPreference =  getApplicationContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        var qAmount = sharedPreference.getString("qAmount"," ")
+        var multiplier = sharedPreference.getString("multiplier"," ")
         setContentView(R.layout.game_screen)
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Division"
 
         var progress = findViewById<TextView>(R.id.progress_view)
 
-        progress.text = problemCount.toString() + "/10"
+        progress.text = problemCount.toString() + "/" + qAmount
 
-        title.text = "Addition"
-        if (problemCount != 11) {
-            problemCount += 1
-        }
-        else {
-            val i = Intent(this@GameScreen, GameSelection::class.java)
-            startActivity(i)
-            var displayScore = scoreInt;
-            if (getPoint) {
-                displayScore += 1;
+
+        if (qAmount != null) {
+            if (problemCount != qAmount.toInt() + 1) {
+                problemCount += 1
             }
+            else {
+                val i = Intent(this@GameScreen, GameSelection::class.java)
+                startActivity(i)
+                var displayScore = scoreInt.toFloat();
+                if (getPoint) {
+                    displayScore += 1;
+                }
 
-            val text = "Your score was " + displayScore.toString()
-            val duration = Toast.LENGTH_SHORT
+                if (multiplier != null) {
+                    displayScore *= multiplier.toFloat()
+                }
 
-            val toast = Toast.makeText(applicationContext, text, duration)
-            toast.show()
+                val text = "Your score was " + displayScore.toString()
+                val duration = Toast.LENGTH_SHORT
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
         }
         val score = findViewById<TextView>(R.id.Counter)
         var newScoreInt: Int = scoreInt
