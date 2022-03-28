@@ -107,27 +107,7 @@ class GameSettings : AppCompatActivity() {
 
 
 //      Initialize the firebase
-        val db = FirebaseFirestore.getInstance()
 
-        // Create a new user with a first and last name
-        val user: MutableMap<String, Any> = HashMap()
-        user["first"] = "Ada"
-        user["last"] = "Lovelace"
-        user["born"] = 1815
-
-
-
-        // Add a new document with a generated ID
-        db.collection("users")
-            .add(user)
-            .addOnSuccessListener(OnSuccessListener<DocumentReference> { documentReference ->
-                Log.d(
-                    TAG,
-                    "DocumentSnapshot added with ID: " + documentReference.id
-                )
-            })
-            .addOnFailureListener(OnFailureListener { e -> Log.w(TAG, "Error adding document", e) })
-    }
 
 
 
@@ -157,7 +137,7 @@ class GameSettings : AppCompatActivity() {
 
 
 
-}
+}}
 
 //Additional Notes
 //Securing Data

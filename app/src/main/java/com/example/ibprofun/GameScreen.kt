@@ -1,17 +1,23 @@
 package com.example.ibprofun
 
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 
 class GameScreen: AppCompatActivity() {
     var problemCount = 1
@@ -77,6 +83,34 @@ class GameScreen: AppCompatActivity() {
 
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
+
+                val db = FirebaseFirestore.getInstance()
+
+                // Create a new user with a first and last name
+                val highscore: MutableMap<String, Any> = HashMap()
+                highscore["1"] = displayScore.toString()
+
+
+                // Add a new document with a generated ID
+                db.collection("highscores")
+                    .add(highscore)
+                    .addOnSuccessListener(OnSuccessListener<DocumentReference> { documentReference ->
+                        Log.d(
+                            ContentValues.TAG,
+                            "DocumentSnapshot added with ID: " + documentReference.id
+                        )
+                    })
+                    .addOnFailureListener(OnFailureListener { e ->
+                        Log.w(
+                            ContentValues.TAG,
+                            "Error adding document",
+                            e
+                        )
+                    })
+
+
+
+
             }
         }
         val score = findViewById<TextView>(R.id.Counter)
@@ -134,6 +168,29 @@ class GameScreen: AppCompatActivity() {
 
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
+
+                val db = FirebaseFirestore.getInstance()
+
+                // Create a new user with a first and last name
+                val highscore: MutableMap<String, Any> = HashMap()
+                highscore["1"] = displayScore.toString()
+
+
+                db.collection("highscores")
+                    .add(highscore)
+                    .addOnSuccessListener(OnSuccessListener<DocumentReference> { documentReference ->
+                        Log.d(
+                            ContentValues.TAG,
+                            "DocumentSnapshot added with ID: " + documentReference.id
+                        )
+                    })
+                    .addOnFailureListener(OnFailureListener { e ->
+                        Log.w(
+                            ContentValues.TAG,
+                            "Error adding document",
+                            e
+                        )
+                    })
             }
         }
         val score = findViewById<TextView>(R.id.Counter)
@@ -191,6 +248,29 @@ class GameScreen: AppCompatActivity() {
 
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
+
+                val db = FirebaseFirestore.getInstance()
+
+                // Create a new user with a first and last name
+                val highscore: MutableMap<String, Any> = HashMap()
+                highscore["1"] = displayScore.toString()
+
+
+                db.collection("highscores")
+                    .add(highscore)
+                    .addOnSuccessListener(OnSuccessListener<DocumentReference> { documentReference ->
+                        Log.d(
+                            ContentValues.TAG,
+                            "DocumentSnapshot added with ID: " + documentReference.id
+                        )
+                    })
+                    .addOnFailureListener(OnFailureListener { e ->
+                        Log.w(
+                            ContentValues.TAG,
+                            "Error adding document",
+                            e
+                        )
+                    })
             }
         }
         val score = findViewById<TextView>(R.id.Counter)
@@ -248,6 +328,29 @@ class GameScreen: AppCompatActivity() {
 
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
+
+                val db = FirebaseFirestore.getInstance()
+
+                // Create a new user with a first and last name
+                val highscore: MutableMap<String, Any> = HashMap()
+                highscore["1"] = displayScore.toString()
+
+
+                db.collection("highscores")
+                    .add(highscore)
+                    .addOnSuccessListener(OnSuccessListener<DocumentReference> { documentReference ->
+                        Log.d(
+                            ContentValues.TAG,
+                            "DocumentSnapshot added with ID: " + documentReference.id
+                        )
+                    })
+                    .addOnFailureListener(OnFailureListener { e ->
+                        Log.w(
+                            ContentValues.TAG,
+                            "Error adding document",
+                            e
+                        )
+                    })
             }
         }
         val score = findViewById<TextView>(R.id.Counter)
