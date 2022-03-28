@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../IBPROFUN/app/src/main/res/drawable/border.xml" value="0.3855" />
+        <entry key="../IBPROFUN/app/src/main/res/font/aladin.xml" value="0.325" />
         <entry key="../IBPROFUN/app/src/main/res/layout/game_screen.xml" value="0.335" />
         <entry key="../IBPROFUN/app/src/main/res/layout/game_selection.xml" value="0.335" />
         <entry key="../IBPROFUN/app/src/main/res/layout/game_setting_selection.xml" value="0.3500905797101449" />
