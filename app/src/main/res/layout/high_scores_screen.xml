@@ -32,115 +32,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="523dp"
-        android:layout_marginTop="24dp"
-        android:orientation="vertical"
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="387dp"
+        android:layout_height="504dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-        <TextView
-            android:id="@+id/scoreView1"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ScoreView1"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#040303"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/scoreView2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ScoreView2"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#040303"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/scoreView3"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ScoreView3"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#040303"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/scoreView4"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ScoreView4"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#040303"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/scoreView5"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ScoreView5"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#040303"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/scoreView6"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ScoreView6"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#040303"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/scoreView7"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ScoreView7"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#040303"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/scoreView8"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ScoreView8"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#040303"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/scoreView9"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ScoreView9"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#040303"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/scoreView10"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="ScoreView10"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#040303"
-            android:textSize="24sp" />
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
