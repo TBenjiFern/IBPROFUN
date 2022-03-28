@@ -15,7 +15,7 @@ class HighScoresScreen : AppCompatActivity() {
 
         val db = FirebaseFirestore.getInstance()
 
-        val docRef = db.collection("cities").document("SF")
+        val docRef = db.collection("highscores").document("SF")
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {

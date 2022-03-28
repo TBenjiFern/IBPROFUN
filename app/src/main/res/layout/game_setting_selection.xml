@@ -12,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1.0"
-        android:textSize="24sp"
+        android:textColor="#020202"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +24,10 @@
         android:id="@+id/multiplierTotalTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/aladin"
         android:text="Multiplier Total:"
-        android:textSize="20sp"
+        android:textColor="#673AB7"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/multiplierTotal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +39,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/aladin"
         android:text="Score Multiplier:"
+        android:textColor="#673AB7"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/multiplier2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +54,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1.0"
-        android:textSize="20sp"
+        android:textColor="#020202"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -61,6 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:background="#673AB7"
         android:text="Return Main"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,8 +82,10 @@
         android:id="@+id/difficultyTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/aladin"
         android:text="Difficulty"
-        android:textSize="34sp"
+        android:textColor="#673AB7"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,6 +111,7 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="10"
+            android:textColor="#020202"
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
@@ -108,6 +119,7 @@
             android:layout_width="61dp"
             android:layout_height="wrap_content"
             android:text="20"
+            android:textColor="#020202"
             tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <RadioButton
@@ -116,6 +128,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="30"
+            android:textColor="#020202"
             tools:ignore="TouchTargetSizeCheck" />
     </RadioGroup>
 
@@ -124,21 +137,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
+        android:fontFamily="@font/aladin"
         android:text="Score Multiplier:"
+        android:textColor="#673AB7"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/multiplier1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionsGroup"
-        app:layout_constraintVertical_bias="0.962" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/multiplier1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1.0"
-        android:textSize="20sp"
+        android:textColor="#020202"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/difficultyTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -165,6 +182,7 @@
             android:layout_weight="1"
             android:checked="true"
             android:text="Easy"
+            android:textColor="#020202"
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
@@ -173,6 +191,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Medium"
+            android:textColor="#020202"
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
@@ -181,6 +200,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Hard"
+            android:textColor="#020202"
             tools:ignore="TouchTargetSizeCheck" />
     </RadioGroup>
 
@@ -188,20 +208,23 @@
         android:id="@+id/questionsTitle"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
+        android:fontFamily="@font/aladin"
         android:text="Amount of Questions"
-        android:textSize="34sp"
+        android:textColor="#673AB7"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/return_to_main"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintVertical_bias="0.035" />
 
     <Button
         android:id="@+id/saveSettingsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="254dp"
+        android:layout_height="66dp"
+        android:background="#673AB7"
         android:text="Save Settings"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

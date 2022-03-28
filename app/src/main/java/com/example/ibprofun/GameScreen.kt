@@ -22,6 +22,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 class GameScreen: AppCompatActivity() {
     var problemCount = 1
     var getPoint = true
+    var rand1 = 0
+    var rand2 = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +57,7 @@ class GameScreen: AppCompatActivity() {
         val sharedPreference =  getApplicationContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         var qAmount = sharedPreference.getString("qAmount"," ")
         var multiplier = sharedPreference.getString("multiplier"," ")
+        var dificulty = sharedPreference.getString("difficulty", "")
         setContentView(R.layout.game_screen)
         val title = findViewById<TextView>(R.id.OperatorTitle)
 
@@ -126,8 +130,19 @@ class GameScreen: AppCompatActivity() {
             startActivity(i)
         }
         val check_button = findViewById<Button>(R.id.Answer_button)
-        val rand1 = (1..10).random()
-        val rand2 = (1..10).random()
+        if (dificulty == "Easy") {
+            rand1 = (1..10).random()
+            rand2 = (1..10).random()
+        }
+        if (dificulty == "Medium") {
+            rand1 = (1..100).random()
+            rand2 = (1..100).random()
+        }
+        if (dificulty == "Hard") {
+            rand1 = (1..500).random()
+            rand2 = (1..500).random()
+        }
+
         val question = findViewById<TextView>(R.id.Equation)
         question.text = "$rand1 + $rand2"
 
@@ -138,6 +153,7 @@ class GameScreen: AppCompatActivity() {
         val sharedPreference =  getApplicationContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         var qAmount = sharedPreference.getString("qAmount"," ")
         var multiplier = sharedPreference.getString("multiplier"," ")
+        var dificulty = sharedPreference.getString("difficulty", "")
         setContentView(R.layout.game_screen)
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Subtraction"
@@ -206,18 +222,35 @@ class GameScreen: AppCompatActivity() {
             startActivity(i)
         }
         val check_button = findViewById<Button>(R.id.Answer_button)
-        val rand1 = (5..10).random()
-        val rand2 = (1..4).random()
+        if (dificulty == "Easy") {
+            rand1 = (1..10).random()
+            rand2 = (1..10).random()
+        }
+        if (dificulty == "Medium") {
+            rand1 = (1..100).random()
+            rand2 = (1..100).random()
+        }
+        if (dificulty == "Hard") {
+            rand1 = (1..500).random()
+            rand2 = (1..500).random()
+        }
         val question = findViewById<TextView>(R.id.Equation)
-        question.text = "$rand1 - $rand2"
+        var biggerNum = rand2
+        var smallerNum = rand1
+        if (rand1 >= rand2){
+            biggerNum = rand1
+            smallerNum = rand2
+        }
+        question.text = "$biggerNum - $smallerNum"
 
-        check_button.setOnClickListener { check_user_answer(rand1, rand2, "sub",newScoreInt) }
+        check_button.setOnClickListener { check_user_answer(biggerNum, smallerNum, "sub",newScoreInt) }
     }
 
     private fun multiplication(scoreInt: Int) {
         val sharedPreference =  getApplicationContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         var qAmount = sharedPreference.getString("qAmount"," ")
         var multiplier = sharedPreference.getString("multiplier"," ")
+        var dificulty = sharedPreference.getString("difficulty", "")
         setContentView(R.layout.game_screen)
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Multiplication"
@@ -286,8 +319,18 @@ class GameScreen: AppCompatActivity() {
             startActivity(i)
         }
         val check_button = findViewById<Button>(R.id.Answer_button)
-        val rand1 = (1..10).random()
-        val rand2 = (1..10).random()
+        if (dificulty == "Easy") {
+            rand1 = (1..10).random()
+            rand2 = (1..10).random()
+        }
+        if (dificulty == "Medium") {
+            rand1 = (5..10).random()
+            rand2 = (5..25).random()
+        }
+        if (dificulty == "Hard") {
+            rand1 = (5..25).random()
+            rand2 = (10..25).random()
+        }
         val question = findViewById<TextView>(R.id.Equation)
         question.text = "$rand1 X $rand2"
 
@@ -298,6 +341,7 @@ class GameScreen: AppCompatActivity() {
         val sharedPreference =  getApplicationContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         var qAmount = sharedPreference.getString("qAmount"," ")
         var multiplier = sharedPreference.getString("multiplier"," ")
+        var dificulty = sharedPreference.getString("difficulty", "")
         setContentView(R.layout.game_screen)
         val title = findViewById<TextView>(R.id.OperatorTitle)
         title.text = "Division"
@@ -366,8 +410,18 @@ class GameScreen: AppCompatActivity() {
             startActivity(i)
         }
         val check_button = findViewById<Button>(R.id.Answer_button)
-        val rand1 = (1..10).random()
-        val rand2 = (1..10).random()
+        if (dificulty == "Easy") {
+            rand1 = (1..10).random()
+            rand2 = (1..10).random()
+        }
+        if (dificulty == "Medium") {
+            rand1 = (5..10).random()
+            rand2 = (5..25).random()
+        }
+        if (dificulty == "Hard") {
+            rand1 = (5..25).random()
+            rand2 = (10..25).random()
+        }
         val product = rand1 * rand2
         val question = findViewById<TextView>(R.id.Equation)
         question.text = "$product / $rand2"
