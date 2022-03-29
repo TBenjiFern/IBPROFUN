@@ -377,7 +377,8 @@ class GameScreen: AppCompatActivity() {
             }
             else{
                 val answer_solution = findViewById<TextView>(R.id.Check_answer)
-                answer_solution.text ="Wrong"
+                val answer = (getSolution(rand1,rand2,mode).toString())
+                answer_solution.text ="$answer"
 
                 getPoint = false
                 background.setBackgroundColor(Color.RED);
