@@ -17,12 +17,16 @@ import com.google.firebase.firestore.FirebaseFirestore
 class GameSettings : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // This will enable the program to set the view to game_settings_selection upon being called
         setContentView(R.layout.game_setting_selection)
+        // This button gives functionality to the back button on the page
         val button: Button = findViewById(R.id.return_to_main)
         button.setOnClickListener {
+            // When the listener is triggered, we create a new intent to move to MainActivity then start it
             val i = Intent(this@GameSettings, MainActivity::class.java)
             startActivity(i)
         }
+        // Create all variables for buttons and textviews on the screen here to keep it in scope of all the functions
         val qAmountGroup = findViewById<RadioGroup>(R.id.questionsGroup)
         val difficultyGroup = findViewById<RadioGroup>(R.id.difficultiesGroup)
         val qAmountButton10 = findViewById<RadioButton>(R.id.ques_10)
@@ -36,25 +40,35 @@ class GameSettings : AppCompatActivity() {
         val multiplierTotal = findViewById<TextView>(R.id.multiplierTotal)
         val saveSettingsButton = findViewById<Button>(R.id.saveSettingsButton)
         var multiplierNum = "1.0"
+        // SharedPreferences lets us access a file to store variables from ths page.
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        // Create an editor to let us push variables to the sharedpreferences
         var editor = sharedPreference.edit()
+        // Create an initial push so that we have some default settings which match the button positions on the page
         editor.putString("qAmount", "10")
         editor.putString("difficulty", "easy")
         editor.putString("multiplier", multiplierNum)
         editor.commit()
 
         fun calcTotal(): String {
+            // This function will make a sum total from all the multipliers on the page
             multiplierNum = (qAmountMultiplier.getText().toString().toFloat() * diffMultiplier2.getText().toString().toFloat()).toString()
+            // Return sum value
             return multiplierNum
         }
 
         fun setTotalMultiplier(totalAmount: String) {
+            // This function updates the total multiplier text on the page
             multiplierTotal.text = totalAmount
         }
 
+        // List of listeners to update the multiplier text when a button is pressed
         qAmountButton10.setOnClickListener {
+            // Change text
             qAmountMultiplier.text = "1.0"
+            // Get new total multiplier value
             multiplierNum = calcTotal()
+            // Update total multiplier score with total
             setTotalMultiplier(multiplierNum)
         }
 
@@ -88,7 +102,9 @@ class GameSettings : AppCompatActivity() {
             setTotalMultiplier(multiplierNum)
         }
 
+        // When save settings button is hit, perform operations
         saveSettingsButton.setOnClickListener{
+            // Read string value from both button groups and save it
             val qAmountId = qAmountGroup.checkedRadioButtonId
             val qAmountRadioButton = findViewById<RadioButton>(qAmountId)
             val qAmountText = qAmountRadioButton.getText().toString()
@@ -97,41 +113,43 @@ class GameSettings : AppCompatActivity() {
             val difficultyRadioButton = findViewById<RadioButton>(difficultiesId)
             val difficultyText = difficultyRadioButton.getText().toString()
 
+            // Save the string values from the buttons to shared preferences
             editor.putString("qAmount", qAmountText)
             editor.putString("difficulty", difficultyText)
             editor.putString("multiplier", multiplierNum)
             editor.commit()
 
+            // Inform user that changes are saved using Toast
             Toast.makeText(this@GameSettings, "Settings Saved!", Toast.LENGTH_SHORT).show()
         }
 
-
-//      Initialize the firebase
-        val db = FirebaseFirestore.getInstance()
-
-        // Create a new user with a first and last name
-        val user: MutableMap<String, Any> = HashMap()
-        user["first"] = "Ada"
-        user["last"] = "Lovelace"
-        user["born"] = 1815
-
-
-
-        // Add a new document with a generated ID
-        db.collection("users")
-            .add(user)
-            .addOnSuccessListener(OnSuccessListener<DocumentReference> { documentReference ->
-                Log.d(
-                    TAG,
-                    "DocumentSnapshot added with ID: " + documentReference.id
-                )
-            })
-            .addOnFailureListener(OnFailureListener { e -> Log.w(TAG, "Error adding document", e) })
     }
 
 
 
 
+//
+//    //      Initialize the firebase
+//    val db = FirebaseFirestore.getInstance()
+//
+//    // Create a new user with a first and last name
+//    val user: MutableMap<String, Any> = HashMap()
+//    user["first"] = "Ada"
+//    user["last"] = "Lovelace"
+//    user["born"] = 1815
+//
+//
+//
+//    // Add a new document with a generated ID
+//    db.collection("users")
+//    .add(user)
+//    .addOnSuccessListener(OnSuccessListener<DocumentReference> { documentReference ->
+//        Log.d(
+//            TAG,
+//            "DocumentSnapshot added with ID: " + documentReference.id
+//        )
+//    })
+//    .addOnFailureListener(OnFailureListener { e -> Log.w(TAG, "Error adding document", e) })
 //    Java Code to get from the database
 
 //    db.collection("users")
