@@ -24,6 +24,7 @@ class GameScreen: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_screen)
+        // Store "extra" that is passed from previous screen
         val mode = intent.getStringExtra("mode")
         val button: Button = findViewById(R.id.backButton)
 
@@ -83,6 +84,7 @@ class GameScreen: AppCompatActivity() {
                     displayScore *= multiplier.toFloat()
                 }
 
+                // Alerts the final score to the user
                 val text = "Your score was " + displayScore.toString()
                 val duration = Toast.LENGTH_SHORT
 
@@ -126,6 +128,7 @@ class GameScreen: AppCompatActivity() {
     }
 
     private fun subtraction(scoreInt: Int) {
+        // grabs globals settings variables from sharedPreferences
         val sharedPreference =  getApplicationContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         var qAmount = sharedPreference.getString("qAmount"," ")
         var multiplier = sharedPreference.getString("multiplier"," ")
@@ -140,9 +143,11 @@ class GameScreen: AppCompatActivity() {
 
 
         if (qAmount != null) {
+            // if there are still questions remaining, increment problem count by 1
             if (problemCount != qAmount.toInt() + 1) {
                 problemCount += 1
             }
+            // else start game ending conditions and return to game selection
             else {
                 val i = Intent(this@GameScreen, GameSelection::class.java)
                 startActivity(i)
@@ -155,6 +160,7 @@ class GameScreen: AppCompatActivity() {
                     displayScore *= multiplier.toFloat()
                 }
 
+                //Alerts score to user
                 val text = "Your score was " + displayScore.toString()
                 val duration = Toast.LENGTH_SHORT
 
@@ -175,6 +181,7 @@ class GameScreen: AppCompatActivity() {
             startActivity(i)
         }
         val check_button = findViewById<Button>(R.id.Answer_button)
+        // Selects range of numbers based on selected difficulty
         if (dificulty == "Easy") {
             rand1 = (1..10).random()
             rand2 = (1..10).random()
@@ -190,6 +197,7 @@ class GameScreen: AppCompatActivity() {
         val question = findViewById<TextView>(R.id.Equation)
 
 //        Check which number is larger and makes sure that it is first before displaying
+//        This eliminates any negative number answers
         var biggerNum = rand2
         var smallerNum = rand1
         if (rand1 >= rand2){
@@ -214,7 +222,7 @@ class GameScreen: AppCompatActivity() {
 
         progress.text = problemCount.toString() + "/" + qAmount
 
-
+        //increments problem count if game isn't over
         if (qAmount != null) {
             if (problemCount != qAmount.toInt() + 1) {
                 problemCount += 1
@@ -251,6 +259,8 @@ class GameScreen: AppCompatActivity() {
             startActivity(i)
         }
         val check_button = findViewById<Button>(R.id.Answer_button)
+
+        // changes our random problems based on user difficulty
         if (dificulty == "Easy") {
             rand1 = (1..10).random()
             rand2 = (1..10).random()
@@ -270,6 +280,7 @@ class GameScreen: AppCompatActivity() {
     }
 
     private fun division(scoreInt: Int) {
+        //retrieves global variables from sharedPreference
         val sharedPreference =  getApplicationContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         var qAmount = sharedPreference.getString("qAmount"," ")
         var multiplier = sharedPreference.getString("multiplier"," ")
@@ -282,11 +293,12 @@ class GameScreen: AppCompatActivity() {
 
         progress.text = problemCount.toString() + "/" + qAmount
 
-
+        //Increments problem count by 1 if game isn't over
         if (qAmount != null) {
             if (problemCount != qAmount.toInt() + 1) {
                 problemCount += 1
             }
+            //begins game ending conditions
             else {
                 val i = Intent(this@GameScreen, GameSelection::class.java)
                 startActivity(i)
@@ -319,6 +331,7 @@ class GameScreen: AppCompatActivity() {
             startActivity(i)
         }
         val check_button = findViewById<Button>(R.id.Answer_button)
+        // changes our random problems based on user difficulty
         if (dificulty == "Easy") {
             rand1 = (1..10).random()
             rand2 = (1..10).random()
@@ -399,6 +412,7 @@ class GameScreen: AppCompatActivity() {
 
                 getPoint = false
                 background.setBackgroundColor(Color.RED);
+                // recalls an operator function to get new problem
                 Handler(Looper.getMainLooper()).postDelayed({
                     if (mode == "add") {
                         addition(scoreInt)
@@ -414,6 +428,7 @@ class GameScreen: AppCompatActivity() {
                     }
                 }, 1000)
             }
+            // gives error message if user input doesn't work
         } catch (e : Exception) {
             Toast.makeText(this, "Invalid Input!", Toast.LENGTH_LONG).show()
     }
