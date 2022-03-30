@@ -18,6 +18,9 @@ import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.HashMap
 
 class GameScreen: AppCompatActivity() {
 //    variables that are able to be accessed/ changed by all functions within the class
@@ -99,7 +102,11 @@ class GameScreen: AppCompatActivity() {
 
                 // Create a new user with a first and last name
                 val highscore: MutableMap<String, Any> = HashMap()
-                highscore["1"] = displayScore.toString()
+                val date = Calendar.getInstance().time
+                val formatter = SimpleDateFormat.getDateTimeInstance() //or use getDateInstance()
+                val formatedDate = formatter.format(date)
+
+                highscore[formatedDate] = displayScore.toString()
 
 
                 // Add a new document with a generated ID

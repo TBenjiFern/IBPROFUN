@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -13,19 +14,44 @@ class HighScoresScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.high_scores_screen)
 
+        val button: Button = findViewById(R.id.highScoreBack)
+        button.setOnClickListener {
+            // When the listener is triggered, we create a new intent to move to MainActivity then start it
+            val i = Intent(this@HighScoresScreen, MainActivity::class.java)
+            startActivity(i)
+        }
+
         val db = FirebaseFirestore.getInstance()
 
-        val docRef = db.collection("highscores").document("SF")
-        docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-                } else {
-                    Log.d(TAG, "No such document")
+        db.collection("highscores")
+            .get()
+            .addOnSuccessListener { result ->
+                val textArea = findViewById<TextView>(R.id.mainArea)
+//                textArea.setText(result.toString())
+                var displayText = ""
+
+                var highList = arrayListOf<Float>()
+                for (document in result) {
+                    var value = document.data.values.toList()[0].toString().toFloat()
+                    highList.add(value)
                 }
+                highList.sort()
+                var counter = 0
+                for (i in 0..4) {
+                    var value = ""
+                    counter += 1
+                    if (i >= highList.size){
+                        value = ""
+                    }else{
+                        value = highList[highList.size-1-i].toString()
+                    }
+                    displayText += counter.toString() + " ........ " + value + "\n"
+                }
+
+                textArea.setText(displayText)
             }
             .addOnFailureListener { exception ->
-                Log.d(TAG, "get failed with ", exception)
+                Log.d(TAG, "Error getting documents: ", exception)
             }
 //        val start:Button = findViewById(R.id.startLearningButton)
 //        start.setOnClickListener {
