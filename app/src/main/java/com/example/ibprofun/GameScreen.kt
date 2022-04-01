@@ -128,9 +128,6 @@ class GameScreen: AppCompatActivity() {
                         )
                     })
 
-
-
-
             }
         }
         val score = findViewById<TextView>(R.id.Counter)
